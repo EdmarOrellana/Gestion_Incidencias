@@ -198,7 +198,7 @@ INSERT INTO `cliente` (`id_cliente`, `id_tipo_documento`, `id_area`, `id_anexo`,
 	(69, 1, 1, 1, 'DIEGO', 'COLMENARES', 'RODRIGUEZ-LARRAIN', '95257525', 'Jr. Cayalti 335 - Monterrico - (Cdra. 11 y 12 Av. Encalada), Surco', '5112375', '942258810', 'DIEGO@GMAIL.COM', 'DCOLMENARES', 'COLMENARES', 1),
 	(70, 1, 1, 1, 'RAUL IGNACIO', 'SERQUEN', 'BUSTIOS', '72799827', 'Cl. Nicolas de Pierola 326 - Urb. Liguria - (Espalda Cdra. 14 Av. Ayacucho), Surco', '5607244', '915797022', 'RAUL IGNACIO@GMAIL.COM', 'RSERQUEN', 'SERQUEN', 1),
 	(71, 1, 1, 1, 'ALVARO ALONSO', 'ARTETA', 'VELASCO', '29515166', 'Prolong. Arenales 687 - Dpto. 202 - (Cdra. 40 Av. Arequipa), Miraflores', '5701711', '976036763', 'ALVARO ALONSO@GMAIL.COM', 'AARTETA', 'ARTETA', 1),
-	(72, 1, 1, 1, 'ALDO', 'AGUINAGA', 'ZECEVIC', '39342178', 'Psje. AcuNa 127 - Of. de GMD - (Alt. Jr. Carabaya con Jr. Miroquesada), Lima', '5170523', '962888325', 'ALDO@GMAIL.COM', 'AAGUINAGA', 'AGUINAGA', 1),
+	(72, 1, 3, 7, 'ALDO', 'AGUINAGA', 'ZECEVIC', '39342178', '', '130', '', 'ALDO@GMAIL.COM', 'AAGUINAGA', 'AGUINAGA', 0),
 	(73, 1, 1, 1, 'JORGE ENRIQUE', 'LISTER', 'IZQUIERDO', '33200072', 'Jr. Callao 642 - Parroquia, Lima', '5634885', '949724553', 'JORGE ENRIQUE@GMAIL.COM', 'JLISTER', 'LISTER', 1),
 	(74, 1, 1, 1, 'FRANCO', 'FREUNDT', 'OLAECHA', '95883794', 'Burgos 120 - Dpto. 301 - 1? Etapa - (Por el Estadio de la U), Ate', '5537940', '918851431', 'FRANCO@GMAIL.COM', 'FFREUNDT', 'FREUNDT', 1),
 	(75, 1, 1, 1, 'FAUSTO IVaN', 'DUCASSI', 'PAZ', '61595832', 'Av. Republica 271 - Edif. 3 - Dpto. 401 - Monterrico - (Cdra. 3 y 4 Av. El Derby), Surco', '5205426', '943297979', 'FAUSTO IVaN@GMAIL.COM', 'FDUCASSI', 'DUCASSI', 1),
@@ -241,8 +241,8 @@ INSERT INTO `cliente` (`id_cliente`, `id_tipo_documento`, `id_area`, `id_anexo`,
 	(112, 1, 1, 1, 'ALVARO', 'ARIAS', 'VENEGAS', '10805662', 'Cl. San Juan 303 - Las Gardenias - (Cdra. 15 Caminos del Inca), Surco', '5378318', '946175081', 'ALVARO@GMAIL.COM', 'AARIAS', 'ARIAS', 1),
 	(113, 1, 1, 1, 'GASToN IGNACIO', 'GARBIN', 'NARVAEZ', '82293236', 'Av. Mcal. Castilla 635 - Dpto. 301 , Surco', '5337159', '949328767', 'GASToN IGNACIO@GMAIL.COM', 'GGARBIN', 'GARBIN', 1),
 	(114, 1, 1, 1, 'LUIS', 'UGAS', 'BERETTA', '27812670', 'Urb. Sta. Rosa - Res. Los Inkas - Edif. Illari - Dpto. 304 B - (Cdra. 10 Guardia Civil), Surco', '5202711', '994326982', 'LUIS@GMAIL.COM', 'LUGAS', 'UGAS', 1),
-	(115, 1, 1, 1, 'ALBERTO REYNALDO', 'ADRIANZEN', 'ZERENE', '54689322', 'Philip Von Leonard 385 - Dpto. 204 - (Paralela Cdra. 10 Galvez Barrenechea), S/Borja', '5512478', '927843359', 'ALBERTO REYNALDO@GMAIL.COM', 'AADRIANZEN', 'ADRIANZEN', 1),
-	(116, 1, 1, 1, 'ALBERTO BERNARDO', 'ACOSTA', 'ZEVALLOS', '53355118', 'MALECON ARMENDARIS 111 - PISO 4 , MIRAFLORES', '5659376', '992504853', 'ALBERTOBERNARDO@GMAIL.COM', 'AACOSTA', 'ACOSTA', 1),
+	(115, 1, 5, 6, 'ALBERTO REYNALDO', 'ADRIANZEN', 'ZERENE', '54689322', '', '127', '', 'ALBERTOREYNALDO@GMAIL.COM', 'AADRIANZEN', 'ADRIANZEN', 1),
+	(116, 1, 3, 3, 'ALBERTO BERNARDO', 'ACOSTA', 'ZEVALLOS', '53355118', '', '126', '', 'ALBERTOBERNARDO@GMAIL.COM', 'AACOSTA', 'ACOSTA', 1),
 	(117, 1, 1, 1, 'JAVIER GONZALO', 'LANDAURO', 'LAPOINT', '24756175', 'Javier Prado Este 463 - Block C - Dpto. 403 - Inka Golf - rente a Camacho - Junto a Cenespar, Surco', '5438252', '970940437', 'JAVIER GONZALO@GMAIL.COM', 'JLANDAURO', 'LANDAURO', 1),
 	(118, 1, 1, 1, 'JORGE OMAR', 'LORET', 'HONORIO', '87150632', 'Emilio Fernandez 641 - Santa Beatriz - (Alt. Cdra. 9 Av Arequipa) - Trilce, Lince', '5653703', '938738095', 'JORGE OMAR@GMAIL.COM', 'JLORET', 'LORET', 1),
 	(119, 1, 1, 1, 'BRUNO', 'BIANCATO', 'TAMI', '56026921', 'Ubicado en el Centro Comercial Real Plaza Centro Civico pertenece a Continental Travel Tda. 156, Lim', '5268958', '958074437', 'BRUNO@GMAIL.COM', 'BBIANCATO', 'BIANCATO', 1),
@@ -282,7 +282,7 @@ INSERT INTO `cliente` (`id_cliente`, `id_tipo_documento`, `id_area`, `id_anexo`,
 	(153, 1, 1, 1, 'EDUARDO JESuS', 'TRAMONTANA', 'PINILLOS', '55373856', 'Jose de la Torre Ugarte 395 - Polleria El SeNorial - (Frente al Boulevard), Comas', '5931932', '984598232', 'EDUARDO JESuS@GMAIL.COM', 'ETRAMONTANA', 'TRAMONTANA', 1),
 	(154, 1, 1, 1, 'FERNANDO', 'ECHEVARRIA', 'PASSANO', '25214110', 'Av. El Naranjal 777 - Urb. Parque -(Cdra. 7 Palmeras), Los Olivos', '5489744', '956633418', 'FERNANDO@GMAIL.COM', 'FECHEVARRIA', 'ECHEVARRIA', 1),
 	(155, 1, 1, 1, 'MIGUEL JESuS', 'ROJAS', 'CORREA', '48512078', 'Unidad Vecinal Mirones Chalet 59 LL - Urb. Elio - ((Alt. Cdra. 28 Av. Venezuela - Alt. De Donofrio),', '5442333', '941120080', 'MIGUEL JESuS@GMAIL.COM', 'MROJAS', 'ROJAS', 1),
-	(156, 1, 1, 1, 'ALDO ALEXIS', 'AGUIRRE', 'ZARATE', '75259859', 'Cl. Sta. Margarita 120 - Urb. Palao - 2| Etapa - (Por als Mayolicas), SMP', '5581953', '972601660', 'ALDO ALEXIS@GMAIL.COM', 'AAGUIRRE', 'AGUIRRE', 1),
+	(156, 1, 4, 6, 'ALDO ALEXIS', 'AGUIRRE', 'ZARATE', '75259859', '', '126', '', 'ALDOALEXIS@GMAIL.COM', 'AAGUIRRE', 'AGUIRRE', 1),
 	(157, 1, 1, 1, 'JOSe BERNARDO', 'MAGNIFICO', 'GUERINONI', '61720111', 'Av. Saenz PeNa 298 - Banco de la Nacion, Callao', '5640420', '910578646', 'JOSe BERNARDO@GMAIL.COM', 'JMAGNIFICO', 'MAGNIFICO', 1),
 	(158, 1, 1, 1, 'ALVARO MAURICIO', 'BACA', 'VASQUEZ', '95430754', 'Jr. Condes de Suquerunda 239 - Int. 215 - 2? Piso - (Esq. Con Camana - Por Plaza de Armas), Lima', '5515809', '974076350', 'ALVARO MAURICIO@GMAIL.COM', 'ABACA', 'BACA', 1),
 	(159, 1, 1, 1, 'JAVIER MANUEL', 'LASSUS', 'LABARTHE', '73319731', 'Av. Eduardo de Habich 376 - Ingenieria, SMP', '5983147', '985117896', 'JAVIER MANUEL@GMAIL.COM', 'JLASSUS', 'LASSUS', 1),
@@ -311,7 +311,10 @@ INSERT INTO `cliente` (`id_cliente`, `id_tipo_documento`, `id_area`, `id_anexo`,
 	(182, 1, 1, 1, 'ALONSO', 'APARICIO', 'VIACAVA', '89967143', 'Cl. San Hernan 259 - Urb. Sta. Luisa - 2? Etapa , Los Olivos', '5614938', '967211755', 'ALONSO@GMAIL.COM', 'AAPARICIO', 'APARICIO', 1),
 	(183, 1, 1, 1, 'FERNANDO', 'EGUILUZ', 'PARRA', '13486606', 'Urb. El Pinar - Cl. 7 - Mz. U - Lt. 43 - Dpto. 304 - Torre A - (Paradero Pesca Brava de Trapiche  - ', '5812798', '957528540', 'FERNANDO@GMAIL.COM', 'FEGUILUZ', 'EGUILUZ', 1),
 	(184, 1, 1, 1, 'DIEGO', 'CROUSILLAT', 'RIZO PATRON', '47967753', 'Jr. Condes de Suquerunda 239 - Int. 215 - 2? Piso - (Esq. Con Camana - Por Plaza de Armas), Lima', '5822541', '987071646', 'DIEGO@GMAIL.COM', 'DCROUSILLAT', 'CROUSILLAT', 1),
-	(185, 1, 1, 1, 'ALLAN CARLOS', 'ANSELMI', 'VIANA', '48297334', 'Alfredo Mendiola 1269 - Of. C 301, Los Olivos', '5423906', '947022621', 'ALLAN CARLOS@GMAIL.COM', 'AANSELMI', 'ANSELMI', 1);
+	(185, 1, 1, 1, 'ALLAN CARLOS', 'ANSELMI', 'VIANA', '48297334', 'Alfredo Mendiola 1269 - Of. C 301, Los Olivos', '5423906', '947022621', 'ALLAN CARLOS@GMAIL.COM', 'AANSELMI', 'ANSELMI', 1),
+	(186, 1, 11, 6, 'JENSEN', 'LEYVA', 'RODRIGUEZ', '46789547', '', '126', '', 'JENSEN.LEYVA@INSECORP.PE', 'JLEYVA', '123456', 1),
+	(187, 1, 2, 4, 'MARIELA', 'SILVA', 'ROMERO', '45871235', '', '154', '', 'MARIELA.SILVA@INSECORP.PE', 'MSILVA', '123456', 1),
+	(188, 1, 5, 6, 'JOEL', 'DENEGRI', 'ROJAS', '32417548', '', '129', '', 'JOEL.DENEGRI@INSECORP.PE', 'JDENEGRI', '123456', 1);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
 -- Volcando estructura para tabla insecorp.empresa
@@ -491,8 +494,12 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` (`id_usuario`, `id_usuario_tipo`, `nom_usuario`, `ape_pat_usuario`, `ape_mat_usuario`, `usu_usuario`, `pass_usuario`, `act_usuario`) VALUES
 	(1, 1, 'EDMAR', 'ORELLANA', 'ORELLANA', 'ADMIN', '1', 1),
-	(2, 2, 'TÃ‰CNICO', '1', ' ', 'TECNICO1', '1', 1),
-	(3, 2, 'TECNICO', '2', ' ', 'TECNICO2', '2', 1);
+	(3, 2, 'KEVIN', 'MULLUHUARA', 'CERRON', 'KMULLUHUARA', '123456', 1),
+	(4, 1, 'EDMAR', 'ORELLANA', 'GOMERO', 'EORELLANA', '123456', 1),
+	(5, 2, 'IVAN', 'CORTEZ', 'ANAMPA', 'ICORTEZ', '123456', 1),
+	(6, 2, 'JUAN', 'BERROCAL', 'CANCINO', 'JBERROCAL', '123456', 1),
+	(7, 2, 'WELSI', 'TUESTA', 'VIENA', 'WTUESTA', '123456', 1),
+	(8, 2, 'ANA', 'VEGA', 'MARTINEZ', 'AVEGA', '123456', 1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
 -- Volcando estructura para tabla insecorp.usuario_tipo
