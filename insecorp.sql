@@ -122,9 +122,9 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `pass_cliente` varchar(50) NOT NULL,
   `act_cliente` int(2) NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=186 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=190 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla insecorp.cliente: ~185 rows (aproximadamente)
+-- Volcando datos para la tabla insecorp.cliente: ~189 rows (aproximadamente)
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 INSERT INTO `cliente` (`id_cliente`, `id_tipo_documento`, `id_area`, `id_anexo`, `nom_cliente`, `ape_pat_cliente`, `ape_mat_cliente`, `num_doc_cliente`, `dir_cliente`, `tel_cliente`, `cel_cliente`, `email_cliente`, `usu_cliente`, `pass_cliente`, `act_cliente`) VALUES
 	(1, 1, 1, 1, 'RENZO', 'SOTO', 'BULOS', '20756921', 'Av. Carlos Izaguirre 501 - Restaurant Pescados de Nort Fish, Los Olivos', '5320383', '968558408', 'RENZO@GMAIL.COM', 'RSOTO', 'SOTO', 1),
@@ -297,7 +297,7 @@ INSERT INTO `cliente` (`id_cliente`, `id_tipo_documento`, `id_area`, `id_anexo`,
 	(168, 1, 1, 1, 'CARLOS ALBERTO', 'BURGOS', 'STROBBE', '48591816', 'Jr. Jose Cossio 260 - (Cdra. 8 J. Prado Oeste con Brasil o Cdra. 8 Av. El Ejercito con Larco Herrera', '5938028', '996269589', 'CARLOS ALBERTO@GMAIL.COM', 'CBURGOS', 'BURGOS', 1),
 	(169, 1, 1, 1, 'ALVARO EDUARDO', 'ASPILLAGA', 'VELASCO', '25560330', 'Jr. Los Limoncillos 4018 - 3? Piso - (Alt. De la Telefonica de Palmeras - De la Iglesia Bajar 6 Cdra', '5997344', '995502692', 'ALVARO EDUARDO@GMAIL.COM', 'AASPILLAGA', 'ASPILLAGA', 1),
 	(170, 1, 1, 1, 'DANIEL', 'CASTRO', 'RONCAL', '90996143', 'Alfredo Mendiola 1269 - Of. C 301, Los Olivos', '5320724', '964807462', 'DANIEL@GMAIL.COM', 'DCASTRO', 'CASTRO', 1),
-	(171, 1, 1, 1, 'ALEJANDRO', 'AITA', 'ZAMBRANO', '67974770', 'Jr. Ciguas 976 - Covida - (Entrada a Plaza Vea - Entrada por Inteci), Los Olivos', '5804105', '920858460', 'ALEJANDRO@GMAIL.COM', 'AAITA', 'AITA', 1),
+	(171, 1, 6, 6, 'ALEJANDRO', 'AITA', 'ZAMBRANO', '67974770', '', '112', '', 'ALEJANDRO@GMAIL.COM', 'AAITA', 'AITA', 1),
 	(172, 1, 1, 1, 'MARTiN', 'RAZZETO', 'DE LA GUERRA', '25098673', 'Jr. Canta 545 - (Espalda del consejo de la Municipalidad - Por la Plaza Manco Capac), La Victoria', '5935031', '950484478', 'MARTiN@GMAIL.COM', 'MRAZZETO', 'RAZZETO', 1),
 	(173, 1, 1, 1, 'JOSe FRANCISCO', 'MARTINEZ', 'GORDILLO', '78359758', 'Av. Universitaria 5634 - Colegio Monserrat, Los Olivos', '5163429', '915463327', 'JOSe FRANCISCO@GMAIL.COM', 'JMARTINEZ', 'MARTINEZ', 1),
 	(174, 1, 1, 1, 'JORGE ANTONIO', 'LI', 'JANZIC', '87868417', 'Av. Marco Polo 170 - (Cdra. 3 y 4 Saenz PeNa - Por el Telepodromo El Puerto), Callao', '5420219', '969256812', 'JORGE ANTONIO@GMAIL.COM', 'JLI', 'LI', 1),
@@ -314,7 +314,8 @@ INSERT INTO `cliente` (`id_cliente`, `id_tipo_documento`, `id_area`, `id_anexo`,
 	(185, 1, 1, 1, 'ALLAN CARLOS', 'ANSELMI', 'VIANA', '48297334', 'Alfredo Mendiola 1269 - Of. C 301, Los Olivos', '5423906', '947022621', 'ALLAN CARLOS@GMAIL.COM', 'AANSELMI', 'ANSELMI', 1),
 	(186, 1, 11, 6, 'JENSEN', 'LEYVA', 'RODRIGUEZ', '46789547', '', '126', '', 'JENSEN.LEYVA@INSECORP.PE', 'JLEYVA', '123456', 1),
 	(187, 1, 2, 4, 'MARIELA', 'SILVA', 'ROMERO', '45871235', '', '154', '', 'MARIELA.SILVA@INSECORP.PE', 'MSILVA', '123456', 1),
-	(188, 1, 5, 6, 'JOEL', 'DENEGRI', 'ROJAS', '32417548', '', '129', '', 'JOEL.DENEGRI@INSECORP.PE', 'JDENEGRI', '123456', 1);
+	(188, 1, 5, 6, 'JOEL', 'DENEGRI', 'ROJAS', '32417548', '', '129', '', 'JOEL.DENEGRI@INSECORP.PE', 'JDENEGRI', '123456', 1),
+	(189, 1, 11, 5, 'SONJA', 'ROJAS', 'PEREZ', '36124575', '', '130', '', 'SONJA.ROJAS@INSECORP.PE', 'SROJAS', '123456', 1);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
 -- Volcando estructura para tabla insecorp.empresa
@@ -367,22 +368,25 @@ CREATE TABLE IF NOT EXISTS `incidencia` (
   `id_prioridad` int(10) NOT NULL,
   `id_categoria_detalle` int(10) NOT NULL,
   `id_usuario` int(10) NOT NULL,
-  `niv_incidencia` int(5) NOT NULL,
+  `niv_incidencia` varchar(50) NOT NULL,
   `asu_incidencia` longtext NOT NULL,
   `des_incidencia` longtext NOT NULL,
   `time_ini_incidencia` datetime NOT NULL,
   `time_fin_incidencia` datetime NOT NULL,
+  `fec_ven` datetime NOT NULL,
   `act_incidencia` int(2) NOT NULL,
   PRIMARY KEY (`id_incidencia`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla insecorp.incidencia: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla insecorp.incidencia: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `incidencia` DISABLE KEYS */;
-INSERT INTO `incidencia` (`id_incidencia`, `id_cliente`, `id_asignado`, `id_tipo_solicitud`, `id_modo`, `id_impacto`, `id_prioridad`, `id_categoria_detalle`, `id_usuario`, `niv_incidencia`, `asu_incidencia`, `des_incidencia`, `time_ini_incidencia`, `time_fin_incidencia`, `act_incidencia`) VALUES
-	(32, 3, 2, 1, 1, 1, 1, 28, 1, 1, 'A', 'A', '2017-05-03 18:01:02', '0000-00-00 00:00:00', 3),
-	(33, 3, 2, 4, 1, 1, 1, 30, 1, 2, 'CAMBIENME', 'PORFAVOR', '2017-05-03 18:03:28', '0000-00-00 00:00:00', 4),
-	(34, 116, 2, 6, 1, 3, 3, 28, 1, 3, 'T', 'T', '2017-05-04 18:17:17', '0000-00-00 00:00:00', 4),
-	(35, 4, 3, 1, 1, 1, 1, 30, 1, 3, 'O', 'O', '2017-05-04 18:23:00', '0000-00-00 00:00:00', 3);
+INSERT INTO `incidencia` (`id_incidencia`, `id_cliente`, `id_asignado`, `id_tipo_solicitud`, `id_modo`, `id_impacto`, `id_prioridad`, `id_categoria_detalle`, `id_usuario`, `niv_incidencia`, `asu_incidencia`, `des_incidencia`, `time_ini_incidencia`, `time_fin_incidencia`, `fec_ven`, `act_incidencia`) VALUES
+	(32, 3, 2, 1, 1, 1, 1, 28, 1, '1', 'A', 'A', '2017-05-03 18:01:02', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 3),
+	(33, 3, 2, 4, 1, 1, 1, 30, 1, '2', 'CAMBIENME', 'PORFAVOR', '2017-05-03 18:03:28', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 4),
+	(34, 116, 2, 6, 1, 3, 3, 28, 1, '3', 'T', 'T', '2017-05-04 18:17:17', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 4),
+	(35, 4, 3, 1, 1, 1, 1, 30, 1, '3', 'O', 'O', '2017-05-04 18:23:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 3),
+	(36, 186, 5, 1, 1, 4, 4, 28, 1, '1', 'REPORTA PROBLEMAS CON LA CONEXION A RED', 'REPORTA PROBLEMAS CON LA CONEXION A RED', '2017-05-06 14:46:50', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 4),
+	(41, 1, 0, 3, 1, 4, 3, 28, 1, 'NIVEL 2', 'SOLICITA CAMBIO DE MONITOR', 'SOLICITA CAMBIO DE MONITOR', '2017-05-06 16:27:42', '0000-00-00 00:00:00', '2017-05-09 12:00:00', 4);
 /*!40000 ALTER TABLE `incidencia` ENABLE KEYS */;
 
 -- Volcando estructura para tabla insecorp.incidencia_cambio
@@ -397,9 +401,9 @@ CREATE TABLE IF NOT EXISTS `incidencia_cambio` (
   `time_fin_incidencia_cambio` time NOT NULL,
   `fec_incidencia_cambio` date NOT NULL,
   PRIMARY KEY (`id_incidencia_cambio`)
-) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla insecorp.incidencia_cambio: ~6 rows (aproximadamente)
+-- Volcando datos para la tabla insecorp.incidencia_cambio: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `incidencia_cambio` DISABLE KEYS */;
 INSERT INTO `incidencia_cambio` (`id_incidencia_cambio`, `id_incidencia`, `id_usuario`, `tip_incidencia_cambio`, `det_incidencia_cambio`, `desc_incidencia_cambio`, `time_ini_incidencia_cambio`, `time_fin_incidencia_cambio`, `fec_incidencia_cambio`) VALUES
 	(127, 32, 1, 'ASIGNACIÃ“N', '2', 'TU PUEDES', '18:01:02', '18:01:13', '2017-05-03'),
@@ -407,7 +411,8 @@ INSERT INTO `incidencia_cambio` (`id_incidencia_cambio`, `id_incidencia`, `id_us
 	(129, 34, 1, 'ASIGNACIÃ“N', '2', 'RRRR', '18:17:17', '18:22:04', '2017-05-04'),
 	(130, 33, 1, 'ASIGNACIÃ“N', '2', 'GGG', '18:03:28', '18:22:42', '2017-05-04'),
 	(131, 35, 1, 'CAMBIO DE ESTADO', '3', '', '18:23:00', '18:25:21', '2017-05-04'),
-	(132, 35, 1, 'ASIGNACIÃ“N', '3', 'AAA', '18:23:00', '18:25:49', '2017-05-04');
+	(132, 35, 1, 'ASIGNACIÃ“N', '3', 'AAA', '18:23:00', '18:25:49', '2017-05-04'),
+	(133, 36, 1, 'ASIGNACIÃ“N', '5', '.', '14:46:50', '14:47:19', '2017-05-06');
 /*!40000 ALTER TABLE `incidencia_cambio` ENABLE KEYS */;
 
 -- Volcando estructura para tabla insecorp.modo
@@ -437,10 +442,10 @@ CREATE TABLE IF NOT EXISTS `prioridad` (
 -- Volcando datos para la tabla insecorp.prioridad: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `prioridad` DISABLE KEYS */;
 INSERT INTO `prioridad` (`id_prioridad`, `nom_prioridad`, `act_prioridad`) VALUES
-	(1, 'ALTO', 1),
-	(2, 'BAJO', 1),
-	(3, 'URGENTE', 1),
-	(4, 'NORMAL', 1);
+	(1, 'Urgente', 1),
+	(2, 'Alto', 1),
+	(3, 'Normal', 1),
+	(4, 'Bajo', 1);
 /*!40000 ALTER TABLE `prioridad` ENABLE KEYS */;
 
 -- Volcando estructura para tabla insecorp.tipo_documento
@@ -488,9 +493,9 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `pass_usuario` varchar(50) NOT NULL,
   `act_usuario` int(2) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla insecorp.usuario: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla insecorp.usuario: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` (`id_usuario`, `id_usuario_tipo`, `nom_usuario`, `ape_pat_usuario`, `ape_mat_usuario`, `usu_usuario`, `pass_usuario`, `act_usuario`) VALUES
 	(1, 1, 'EDMAR', 'ORELLANA', 'ORELLANA', 'ADMIN', '1', 1),

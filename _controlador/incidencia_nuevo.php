@@ -5,19 +5,15 @@
 <title>Nueva Incidencia</title>
 </head>
 
-
 <body>
-
 
 <?php
 
 //Menu de Opciones
 include("menu.php");
 ?>
-
-	<div id="content"> <!-- Inicio del Contenido (Menu) --> 
+	<div id="content"> <!-- Inicio del Contenido (Menu) -->
 <?php
-
 
 //-----------------------------------------------------
 //Por defecto
@@ -32,7 +28,6 @@ $modo = BuscarModo();
 $impacto = BuscarImpacto();
 $prioridad = BuscarPrioridad();
 
-
 //Llamar a MODELO
 require_once('../_modelo/m_incidencia.php');
 $hora = HoraActual();
@@ -40,10 +35,9 @@ $hora = HoraActual();
 require('../_vista/v_incidencia_nuevo.php');
 
 //-----------------------------------------------------
-
 if(isset($_REQUEST['grabar']))
 {
-$id_usuario=$id;		
+$id_usuario=$id;
 $id_cliente=strtoupper($_REQUEST['id_cliente']);
 $id_tipo_solicitud=strtoupper($_REQUEST['tip']);
 $id_modo=strtoupper($_REQUEST['mod']);
@@ -54,12 +48,10 @@ $asu=strtoupper($_REQUEST['asu']);
 $des=strtoupper($_REQUEST['des']);
 $hora_ini=0;
 $act=strtoupper($_REQUEST['act']);
-
 $niv=strtoupper($_REQUEST['niv']);
+$fec_ven=strtoupper($_REQUEST['fec_ven']);
 
-$rpta = GrabarIncidencia($id_cliente,$id_usuario,$id_tipo_solicitud,$id_modo,$id_impacto,$id_prioridad,$id_categoria_detalle,$niv,$asu,$des,$hora_ini,$act);
-
-
+$rpta = GrabarIncidencia($id_cliente,$id_usuario,$id_tipo_solicitud,$id_modo,$id_impacto,$id_prioridad,$id_categoria_detalle,$niv,$asu,$des,$hora_ini,$fec_ven,$act);
 
 //MOSTRAR MENSAJES
 if($rpta=="SI")
@@ -69,27 +61,19 @@ if($rpta=="SI")
 //window.close();
 alert("Registrado exitosamente!!!");
 location.href='incidencia_mostrar.php';
-</script>	
-<?php } 
+</script>
+<?php }
 
-else if($rpta=="NO") 
+else if($rpta=="NO")
 {?>
 <script Language="JavaScript">
 //alert("Ya existe este tipo de servicio");
 alert("Ya existe esta Incidencia");
 location.href='incidencia_mostrar.php';
-</script>	
-<?php } 
-
-} 
-
-//-----------------------------------------------------
-?>	
-
-
+</script>
+<?php }
+}
+?>
 </div> <!-- Fin del Div  (Menu) -->
-
-
-
 </body>
 </html>

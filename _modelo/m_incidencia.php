@@ -1,17 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Documento sin título</title>
 </head>
 
 <body>
-
 <?php
-
 //---------------------------------------------Incidencia----------------------------------------------------------
-
-
 function MostrarIncidencia($p,$d,$a)
 {
 include("../conexion/conexion.php");
@@ -22,7 +18,7 @@ $sql="SELECT *,
 CONCAT(ASIGNADO.nom_usuario,' ',ASIGNADO.ape_pat_usuario,' ',ASIGNADO.ape_mat_usuario) AS usu_asignado,
 CONCAT(USU.nom_usuario,' ',USU.ape_pat_usuario,' ',USU.ape_mat_usuario) AS usu_usuario
 
-FROM incidencia 
+FROM incidencia
 
 INNER JOIN cliente ON incidencia.id_cliente=cliente.id_cliente
 LEFT JOIN usuario ASIGNADO ON incidencia.id_asignado=ASIGNADO.id_usuario
@@ -38,19 +34,16 @@ LEFT JOIN categoria ON categoria_detalle.id_categoria=categoria.id_categoria
 ORDER BY time_ini_incidencia DESC";
 }
 
-
 $res=mysql_query($sql,$con);
 $servicio = array();
 while($row=mysql_fetch_array($res, MYSQL_ASSOC)){
-$servicio[] = $row;		
+$servicio[] = $row;
 }
 // Cerrar la conexión
 mysql_close($con);
 return $servicio;
 }
-
 //-------------------------------------------------------------------------------------------------------
-
 function MostrarIncidencia1($id_usuario,$tipo)
 {
 include("../conexion/conexion.php");
@@ -62,7 +55,7 @@ $sql="SELECT *,
 CONCAT(ASIGNADO.nom_usuario,' ',ASIGNADO.ape_pat_usuario,' ',ASIGNADO.ape_mat_usuario) AS usu_asignado,
 CONCAT(USU.nom_usuario,' ',USU.ape_pat_usuario,' ',USU.ape_mat_usuario) AS usu_usuario
 
-FROM incidencia 
+FROM incidencia
 
 INNER JOIN cliente ON incidencia.id_cliente=cliente.id_cliente
 LEFT JOIN usuario ASIGNADO ON incidencia.id_asignado=ASIGNADO.id_usuario
@@ -78,14 +71,13 @@ LEFT JOIN categoria ON categoria_detalle.id_categoria=categoria.id_categoria
 ORDER BY time_ini_incidencia DESC";
 
 }
-
 else
 {
 $sql="SELECT *,
 CONCAT(ASIGNADO.nom_usuario,' ',ASIGNADO.ape_pat_usuario,' ',ASIGNADO.ape_mat_usuario) AS usu_asignado,
 CONCAT(USU.nom_usuario,' ',USU.ape_pat_usuario,' ',USU.ape_mat_usuario) AS usu_usuario
 
-FROM incidencia 
+FROM incidencia
 
 INNER JOIN cliente ON incidencia.id_cliente=cliente.id_cliente
 LEFT JOIN usuario ASIGNADO ON incidencia.id_asignado=ASIGNADO.id_usuario
@@ -101,20 +93,17 @@ LEFT JOIN categoria ON categoria_detalle.id_categoria=categoria.id_categoria
 WHERE incidencia.id_asignado='$id_usuario'
 
 ORDER BY time_ini_incidencia DESC";
-	
 }
-
 $res=mysql_query($sql,$con);
 $servicio = array();
 while($row=mysql_fetch_array($res, MYSQL_ASSOC)){
-$servicio[] = $row;		
+$servicio[] = $row;
 }
 // Cerrar la conexión
 mysql_close($con);
 return $servicio;
 }
 //-------------------------------------------------------------------------------------------------------
-
 function MostrarIncidenciaCliente($id_cliente)
 {
 include("../conexion/conexion.php");
@@ -123,7 +112,7 @@ $sql="SELECT *,
 CONCAT(ASIGNADO.nom_usuario,' ',ASIGNADO.ape_pat_usuario,' ',ASIGNADO.ape_mat_usuario) AS usu_asignado,
 CONCAT(USU.nom_usuario,' ',USU.ape_pat_usuario,' ',USU.ape_mat_usuario) AS usu_usuario
 
-FROM incidencia 
+FROM incidencia
 
 INNER JOIN cliente ON incidencia.id_cliente=cliente.id_cliente
 LEFT JOIN usuario ASIGNADO ON incidencia.id_asignado=ASIGNADO.id_usuario
@@ -136,29 +125,23 @@ LEFT JOIN prioridad ON incidencia.id_prioridad=prioridad.id_prioridad
 LEFT JOIN categoria_detalle ON incidencia.id_categoria_detalle=categoria_detalle.id_categoria_detalle
 LEFT JOIN categoria ON categoria_detalle.id_categoria=categoria.id_categoria
 
-
 WHERE incidencia.id_cliente='$id_cliente'
 
 ORDER BY time_ini_incidencia DESC";
 
-
 $res=mysql_query($sql,$con);
 $servicio = array();
 while($row=mysql_fetch_array($res, MYSQL_ASSOC)){
-$servicio[] = $row;		
+$servicio[] = $row;
 }
 // Cerrar la conexión
 mysql_close($con);
 return $servicio;
 }
-
-
 //-------------------------------------------------------------------------------------------------------
-function GrabarIncidencia($id_cliente,$id_usuario,$id_tipo_solicitud,$id_modo,$id_impacto,$id_prioridad,$id_categoria_detalle,$niv,$asu,$des,$hora_ini,$act)
+function GrabarIncidencia($id_cliente,$id_usuario,$id_tipo_solicitud,$id_modo,$id_impacto,$id_prioridad,$id_categoria_detalle,$niv,$asu,$des,$hora_ini,$fec_ven,$act)
 {
 include("../conexion/conexion.php");
-
-
 
 $sql="INSERT INTO incidencia() VALUES
 	(
@@ -176,19 +159,16 @@ $sql="INSERT INTO incidencia() VALUES
 	'$des',
 	NOW(),
 	0,
+	'$fec_ven',
 	'$act'
 	)
 	";
 
-	mysql_query($sql,$con);	
+	mysql_query($sql,$con);
 	return $rpta="SI";
-	
 //Cerrar la conexión
 mysql_close($con);
-
-
 }
-
 //-------------------------------------------------------------------------------------------------------
 function ConsultarIncidencia($cod)
 {
@@ -199,7 +179,7 @@ CONCAT(ASIGNADO.nom_usuario,' ',ASIGNADO.ape_pat_usuario,' ',ASIGNADO.ape_mat_us
 CONCAT(USU.nom_usuario,' ',USU.ape_pat_usuario,' ',USU.ape_mat_usuario) AS usu_usuario,
 ASIGNADO.id_usuario AS id_asignado
 
-FROM incidencia 
+FROM incidencia
 
 INNER JOIN cliente ON incidencia.id_cliente=cliente.id_cliente
 LEFT JOIN usuario ASIGNADO ON incidencia.id_asignado=ASIGNADO.id_usuario
@@ -212,13 +192,12 @@ LEFT JOIN prioridad ON incidencia.id_prioridad=prioridad.id_prioridad
 LEFT JOIN categoria_detalle ON incidencia.id_categoria_detalle=categoria_detalle.id_categoria_detalle
 LEFT JOIN categoria ON categoria_detalle.id_categoria=categoria.id_categoria
 
-
-WHERE id_incidencia='$cod'"; 
+WHERE id_incidencia='$cod'";
 
 $res=mysql_query($sql,$con);
 $datos = array();
 while($row=mysql_fetch_array($res, MYSQL_ASSOC)){
-$datos[] = $row;		
+$datos[] = $row;
 }
 // Cerrar la conexión
 mysql_close($con);
@@ -242,19 +221,17 @@ LEFT JOIN usuario ASIGNADO ON incidencia_cambio.det_incidencia_cambio=ASIGNADO.i
 
 WHERE incidencia_cambio.id_incidencia='$cod'
 
-ORDER BY fec_incidencia_cambio DESC"; 
+ORDER BY fec_incidencia_cambio DESC";
 
 $res=mysql_query($sql,$con);
 $datos = array();
 while($row=mysql_fetch_array($res, MYSQL_ASSOC)){
-$datos[] = $row;		
+$datos[] = $row;
 }
 // Cerrar la conexión
 mysql_close($con);
 return $datos;
 }
-
-
 //-------------------------------------------------------------------------------------------------------
 /*
 function ActualizarIncidencia($id_incidencia,$id_cliente,$id_asignado,$id_categoria_detalle,$id_modo,$id_usuario,$urg,$imp,$prio,$res,$des,$hora_ini,$act)
@@ -263,7 +240,7 @@ include("../conexion/conexion.php");
 
 	if($act==4){$time_fin="TIME(NOW())";}else{$time_fin="0";}
 
-	$sqlg="UPDATE incidencia SET 
+	$sqlg="UPDATE incidencia SET
 	id_cliente='$id_cliente',
 	id_asignado='$id_asignado',
 	id_categoria_detalle='$id_categoria_detalle',
@@ -281,60 +258,47 @@ include("../conexion/conexion.php");
 	mysql_query($sqlg,$con);
 	return $rpta="SI";
 
-
 //Cerrar la conexión
 mysql_close($con);
-
 
 }
 */
 //-------------------------------------------------------------------------------------------------------
-
 function ActualizarIncidenciaEstado($id_incidencia,$id_cliente,$det,$id_usuario,$id_tipo_solicitud,$id_modo,$id_impacto,$id_prioridad,$id_categoria_detalle,$niv,$asu,$des,$hora_ini,$act)
 {
 include("../conexion/conexion.php");
 
 	if($act==2) //Cuando es CERRADO
-	
 	{
-	$sqlg="UPDATE incidencia SET 
+	$sqlg="UPDATE incidencia SET
 	act_incidencia='$act',
 	time_fin_incidencia=NOW()
 	WHERE id_incidencia='$id_incidencia'";
 	mysql_query($sqlg,$con);
-
 	}
-	
 	else
 	{
-	$sqlg="UPDATE incidencia SET 
+	$sqlg="UPDATE incidencia SET
 	act_incidencia='$act'
 	WHERE id_incidencia='$id_incidencia'";
-	mysql_query($sqlg,$con);	
+	mysql_query($sqlg,$con);
 	}
-	
+
 	//Registra en tabala de cambios
-$sqlx="INSERT INTO incidencia_cambio() 
+$sqlx="INSERT INTO incidencia_cambio()
 VALUES (NULL,'$id_incidencia','$id_usuario','CAMBIO DE ESTADO','$act','$camb','$hora_ini',TIME(NOW()),DATE(NOW()) )";
 	mysql_query($sqlx,$con);
 
-	
 	return $rpta="SI";
-
 //Cerrar la conexión
 mysql_close($con);
-
-
 }
-
 //-------------------------------------------------------------------------------------------------------
-
 function ActualizarIncidenciaTransferencia($id_incidencia,$id_cliente,$id_asignado,$det,$id_usuario,$id_tipo_solicitud,$id_modo,$id_impacto,$id_prioridad,$id_categoria_detalle,$niv,$asu,$des,$hora_ini,$act)
 {
 include("../conexion/conexion.php");
 
-
-	$sqlg="UPDATE incidencia SET 
+	$sqlg="UPDATE incidencia SET
 	id_cliente='$id_cliente',
 	id_asignado='$id_asignado',
 	id_tipo_solicitud='$id_tipo_solicitud',
@@ -349,23 +313,14 @@ include("../conexion/conexion.php");
 	WHERE id_incidencia='$id_incidencia'";
 	mysql_query($sqlg,$con);
 
-						
-			
 	//Registra en tabala de cambios
-$sqlx="INSERT INTO incidencia_cambio() 
+$sqlx="INSERT INTO incidencia_cambio()
 VALUES (NULL,'$id_incidencia','$id_usuario','ASIGNACIÓN','$id_asignado','$det','$hora_ini',TIME(NOW()),DATE(NOW()) )";
 	mysql_query($sqlx,$con);
-	
-	
-	
+
 	return $rpta="SI";
-	
-
-
 //Cerrar la conexión
 mysql_close($con);
-
-
 }
 //-------------------------------------------------------------------------------------------------------
 
@@ -375,18 +330,14 @@ include("../conexion/conexion.php");
 
 	$sqlg="DELETE FROM incidencia WHERE id_incidencia='$id_incidencia'";
 	mysql_query($sqlg,$con);
-	
+
 	$sqlx="DELETE FROM incidencia_cambio WHERE id_incidencia='$id_incidencia'";
 	mysql_query($sqlx,$con);
-	
+
 	return $rpta="SI";
-	
 //Cerrar la conexión
 mysql_close($con);
-
-
 }
-
 //--------------------------------------------------------------------------------------------------------------------------
 function BuscarIncidencia()
 {
@@ -396,7 +347,7 @@ $sql="SELECT *,
 CONCAT(ASIGNADO.nom_usuario,' ',ASIGNADO.ape_pat_usuario,' ',ASIGNADO.ape_mat_usuario) AS usu_asignado,
 CONCAT(USU.nom_usuario,' ',USU.ape_pat_usuario,' ',USU.ape_mat_usuario) AS usu_usuario
 
-FROM incidencia 
+FROM incidencia
 
 INNER JOIN cliente ON incidencia.id_cliente=cliente.id_cliente
 LEFT JOIN usuario ASIGNADO ON incidencia.id_asignado=ASIGNADO.id_usuario
@@ -411,11 +362,10 @@ LEFT JOIN categoria ON categoria_detalle.id_categoria=categoria.id_categoria
 
 WHERE act_incidencia=1";
 
-
 $res=mysql_query($sql,$con);
 $consulta = array();
 while($row=mysql_fetch_array($res, MYSQL_ASSOC)){
-$consulta[] = $row;		
+$consulta[] = $row;
 }
 // Cerrar la conexión
 mysql_close($con);
@@ -429,9 +379,9 @@ include("../conexion/conexion.php");
 
 $sql="SELECT *,
 CONCAT(ASIGNADO.nom_usuario,' ',ASIGNADO.ape_pat_usuario,' ',ASIGNADO.ape_mat_usuario) AS usu_asignado,
-CONCAT(USU.nom_usuario,' ',USU.ape_pat_usuario,' ',USU.ape_mat_usuario) AS usu_usuario 
+CONCAT(USU.nom_usuario,' ',USU.ape_pat_usuario,' ',USU.ape_mat_usuario) AS usu_usuario
 
-FROM incidencia 
+FROM incidencia
 
 INNER JOIN cliente ON incidencia.id_cliente=cliente.id_cliente
 LEFT JOIN usuario ASIGNADO ON incidencia.id_asignado=ASIGNADO.id_usuario
@@ -449,7 +399,7 @@ WHERE nom_categoria_detalle LIKE '%$d%' AND act_incidencia=1";
 $res=mysql_query($sql,$con);
 $consulta = array();
 while($row=mysql_fetch_array($res, MYSQL_ASSOC)){
-$consulta[] = $row;		
+$consulta[] = $row;
 }
 // Cerrar la conexión
 mysql_close($con);
@@ -462,9 +412,9 @@ include("../conexion/conexion.php");
 
 $sql="SELECT *,
 CONCAT(ASIGNADO.nom_usuario,' ',ASIGNADO.ape_pat_usuario,' ',ASIGNADO.ape_mat_usuario) AS usu_asignado,
-CONCAT(USU.nom_usuario,' ',USU.ape_pat_usuario,' ',USU.ape_mat_usuario) AS usu_usuario 
+CONCAT(USU.nom_usuario,' ',USU.ape_pat_usuario,' ',USU.ape_mat_usuario) AS usu_usuario
 
-FROM incidencia 
+FROM incidencia
 
 INNER JOIN cliente ON incidencia.id_cliente=cliente.id_cliente
 LEFT JOIN usuario ASIGNADO ON incidencia.id_asignado=ASIGNADO.id_usuario
@@ -477,14 +427,13 @@ LEFT JOIN prioridad ON incidencia.id_prioridad=prioridad.id_prioridad
 LEFT JOIN categoria_detalle ON incidencia.id_categoria_detalle=categoria_detalle.id_categoria_detalle
 LEFT JOIN categoria ON categoria_detalle.id_categoria=categoria.id_categoria
 
-
 WHERE id_incidencia='$cod'
 ORDER BY fec_incidencia DESC";
 
 $res=mysql_query($sql,$con);
 $consulta = array();
 while($row=mysql_fetch_array($res, MYSQL_ASSOC)){
-$consulta[] = $row;		
+$consulta[] = $row;
 }
 // Cerrar la conexión
 mysql_close($con);
@@ -495,26 +444,14 @@ return $consulta;
 function HoraActual()
 {
 include("../conexion/conexion.php");
-
 $sql="SELECT TIME(NOW()) as hora";
 $res=mysql_query($sql,$con);
 $row=mysql_fetch_array($res);
-$hora=$row['hora'];		
-
+$hora=$row['hora'];
 return $hora;
-
 // Cerrar la conexión
 mysql_close($con);
 }
-
-
-
-
 ?>
-
-
-
-
-
 </body>
 </html>
