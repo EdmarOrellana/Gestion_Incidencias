@@ -37,9 +37,10 @@
                             <th tabindex="0" rowspan="1" colspan="1">Impacto</th>
                             <th tabindex="0" rowspan="1" colspan="1">Prioridad</th>
 														<th tabindex="0" rowspan="1" colspan="1">Nivel</th>
-                            <th tabindex="0" rowspan="1" colspan="1">Asignado</th>
+                            <th tabindex="0" rowspan="1" colspan="1">Especialista</th>
                             <th tabindex="0" rowspan="1" colspan="1">Estado</th>
-                            <th tabindex="0" rowspan="1" colspan="1">Opción</th>
+                            <th tabindex="0" rowspan="1" colspan="1">Opciones</th>
+														<th tabindex="0" rowspan="1" colspan="1">Fecha Vencimiento</th>
                              <?php if($tipo!="ESPECIALISTA") { ?>
                             <th tabindex="0" rowspan="1" colspan="1">Eliminar</th>
 							<?php } ?>
@@ -50,32 +51,30 @@
                     <?php foreach ($consulta as $row):
 
 										$nivel = $row['niv_incidencia'];
-										if($nivel==0)	{
-											$nivel="";
-										} else {
-											$nivel=$nivel;
-										}
-
+										//if($nivel==0)	{
+										//$nivel="";
+										//} else {
+										//$nivel=$nivel; }
 										$asunto = $row['asu_incidencia'];
+										$fec_ven = $row['fec_ven'];
 
 						$act=$row['act_incidencia'];
-						if($act==1){$estado="ABIERTO";}
-						else if($act==2){$estado="CERRADO";}
-						else if($act==3){$estado="DETENIDO";}
-						else if($act==4){$estado="ESPERA";}
-						else if($act==5){$estado="RESUELTO";}
-						else if($act==6){$estado="REABIERTO";}
-					 //	if($tipo!="ADMINISTRADOR" && $estado=="CERRADO")
-					//	{
-
-					//	}
-					//	else
-					//	{
-					?>
-                        <tr>
-                       <form action="incidencia_editar.php" method="post"  name="cuatro" autocomplete="off">
+						if($act==1){$estado="Abierto";}
+						else if($act==2){$estado="Cerrado";}
+						else if($act==3){$estado="Detenido";}
+						else if($act==4){$estado="Espera";}
+						else if($act==5){$estado="Resuelto";}
+						else if($act==6){$estado="Reabierto";}
+						 //	if($tipo!="ADMINISTRADOR" && $estado=="CERRADO")
+						//	{
+						//	}
+						//	else
+						//	{
+						?>
+                      <tr>
+                        <form action="incidencia_editar.php" method="post"  name="cuatro" autocomplete="off">
                         <td  ><?php echo $row['id_incidencia']; ?></td>
-                        <td  ><?php echo $row['time_ini_incidencia']; ?></td>                        
+                        <td  ><?php echo $row['time_ini_incidencia']; ?></td>
                         <td  ><?php echo $row['nom_cliente']." ".$row['ape_pat_cliente']." ".$row['ape_mat_cliente']; ?></td>
                         <td  ><?php echo $row['nom_tipo_solicitud']; ?></td>
 												<td  ><?php echo $asunto; ?></td>
@@ -85,38 +84,44 @@
                         <td  ><?php echo $row['usu_asignado']; ?></td>
 
                         <?php
-						$act=$row['act_incidencia'];
+													$act=$row['act_incidencia'];
+													if($act==1){$estado="ABIERTO";}
+													else if($act==2){$estado="CERRADO";}
+													else if($act==3){$estado="DETENIDO";}
+													else if($act==4){$estado="ESPERA";}
+													else if($act==5){$estado="RESUELTO";}
+													else if($act==6){$estado="REABIERTO";}
+												?>
 
-						if($act==1){$estado="ABIERTO";}
-						else if($act==2){$estado="CERRADO";}
-						else if($act==3){$estado="DETENIDO";}
-						else if($act==4){$estado="ESPERA";}
-						else if($act==5){$estado="RESUELTO";}
-						else if($act==6){$estado="REABIERTO";}
-						?>
-                        <td  ><?php echo $estado; ?></td>
+                    		<td  ><?php echo $estado; ?></td>
 
-   						<td>
+												<td>
                           <?php if($tipo!="ESPECIALISTA") { ?>
-  						  <a href="incidencia_transferir.php?editar=<?php echo $row['id_incidencia']; ?>" target="_self" >Asignar</a>
+  						  				<a href="incidencia_transferir.php?editar=<?php echo $row['id_incidencia']; ?>" target="_self" >Asignar</a>
                           <?php } ?>
-
                          <br>
-
                         <a href="incidencia_cambiar.php?editar=<?php echo $row['id_incidencia']; ?>" target="_self" style="color:#090" >Cambiar Estado</a>
-                 		</td>
+												 <br>
+												<a href="incidencia_acta.php?editar=<?php echo $row['id_incidencia']; ?>" target="_self" style="color:#099" >Generar Acta</a>
 
-                </form>
-                <form action="incidencia_mostrar.php" method="post" autocomplete="off">
-						<?php if($tipo!="ESPECIALISTA") { ?>
-                       <td>
-                            <button type="submit" name="eliminar" style="color:#F00" value="<?php echo $row['id_incidencia']; ?>" class="btn btn-xs btn-link" aria-label="Left Align" >
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Eliminar
-                            </button>
-                       </td>
-                       <?php } ?>
-               </form>
-            </tr>
+												</td>
+                			</form>
+
+											<td  ><?php echo $fec_ven; ?></td>
+
+
+											<form action="incidencia_mostrar.php" method="post" autocomplete="off">
+												<?php if($tipo!="ESPECIALISTA") { ?>
+
+												<td>
+			                     <button type="submit" name="eliminar" style="color:#F00" value="<?php echo $row['id_incidencia']; ?>" class="btn btn-xs btn-link" aria-label="Left Align" >
+			                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Eliminar
+			                     </button>
+			                   </td>
+			                       <?php } ?>
+			               </form>
+            		</tr>
+
 					<?php
 						//}
 					 endforeach; ?>

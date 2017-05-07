@@ -27,7 +27,6 @@ INNER JOIN tipo_solicitud ON incidencia.id_tipo_solicitud=tipo_solicitud.id_tipo
 LEFT JOIN modo ON incidencia.id_modo=modo.id_modo
 LEFT JOIN impacto ON incidencia.id_impacto=impacto.id_impacto
 LEFT JOIN prioridad ON incidencia.id_prioridad=prioridad.id_prioridad
-
 LEFT JOIN categoria_detalle ON incidencia.id_categoria_detalle=categoria_detalle.id_categoria_detalle
 LEFT JOIN categoria ON categoria_detalle.id_categoria=categoria.id_categoria
 
@@ -64,7 +63,6 @@ INNER JOIN tipo_solicitud ON incidencia.id_tipo_solicitud=tipo_solicitud.id_tipo
 LEFT JOIN modo ON incidencia.id_modo=modo.id_modo
 LEFT JOIN impacto ON incidencia.id_impacto=impacto.id_impacto
 LEFT JOIN prioridad ON incidencia.id_prioridad=prioridad.id_prioridad
-
 LEFT JOIN categoria_detalle ON incidencia.id_categoria_detalle=categoria_detalle.id_categoria_detalle
 LEFT JOIN categoria ON categoria_detalle.id_categoria=categoria.id_categoria
 
@@ -86,7 +84,6 @@ INNER JOIN tipo_solicitud ON incidencia.id_tipo_solicitud=tipo_solicitud.id_tipo
 LEFT JOIN modo ON incidencia.id_modo=modo.id_modo
 LEFT JOIN impacto ON incidencia.id_impacto=impacto.id_impacto
 LEFT JOIN prioridad ON incidencia.id_prioridad=prioridad.id_prioridad
-
 LEFT JOIN categoria_detalle ON incidencia.id_categoria_detalle=categoria_detalle.id_categoria_detalle
 LEFT JOIN categoria ON categoria_detalle.id_categoria=categoria.id_categoria
 
@@ -323,11 +320,9 @@ VALUES (NULL,'$id_incidencia','$id_usuario','ASIGNACIÓN','$id_asignado','$det',
 mysql_close($con);
 }
 //-------------------------------------------------------------------------------------------------------
-
 function EliminarIncidencia($id_incidencia)
 {
 include("../conexion/conexion.php");
-
 	$sqlg="DELETE FROM incidencia WHERE id_incidencia='$id_incidencia'";
 	mysql_query($sqlg,$con);
 
@@ -372,7 +367,6 @@ mysql_close($con);
 return $consulta;
 }
 //--------------------------------------------------------------------------------------------------------------------------
-
 function BuscarIncidencia1($d)
 {
 include("../conexion/conexion.php");

@@ -42,21 +42,21 @@ INSERT INTO `anexo` (`id_anexo`, `nom_anexo`, `act_anexo`) VALUES
 -- Volcando estructura para tabla insecorp.area
 CREATE TABLE IF NOT EXISTS `area` (
   `id_area` int(10) NOT NULL AUTO_INCREMENT,
-  `nom_area` varchar(100) NOT NULL,
+  `nom_area` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `act_area` int(2) NOT NULL,
   PRIMARY KEY (`id_area`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
--- Volcando datos para la tabla insecorp.area: ~13 rows (aproximadamente)
+-- Volcando datos para la tabla insecorp.area: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `area` DISABLE KEYS */;
 INSERT INTO `area` (`id_area`, `nom_area`, `act_area`) VALUES
-	(1, 'Produccion', 1),
+	(1, 'Producción', 1),
 	(2, 'Ventas', 1),
-	(3, 'Distribucion', 1),
+	(3, 'Distribución', 1),
 	(4, 'Creditos y Cobranzas', 1),
 	(5, 'Marketing', 1),
 	(6, 'RRHH', 1),
-	(7, 'Asesoria legal', 1),
+	(7, 'Asesoría legal', 1),
 	(8, 'Almacen', 1),
 	(9, 'Compras', 1),
 	(10, 'Laboratorio', 1),
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `pass_cliente` varchar(50) NOT NULL,
   `act_cliente` int(2) NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=190 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=191 DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla insecorp.cliente: ~189 rows (aproximadamente)
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
@@ -315,7 +315,8 @@ INSERT INTO `cliente` (`id_cliente`, `id_tipo_documento`, `id_area`, `id_anexo`,
 	(186, 1, 11, 6, 'JENSEN', 'LEYVA', 'RODRIGUEZ', '46789547', '', '126', '', 'JENSEN.LEYVA@INSECORP.PE', 'JLEYVA', '123456', 1),
 	(187, 1, 2, 4, 'MARIELA', 'SILVA', 'ROMERO', '45871235', '', '154', '', 'MARIELA.SILVA@INSECORP.PE', 'MSILVA', '123456', 1),
 	(188, 1, 5, 6, 'JOEL', 'DENEGRI', 'ROJAS', '32417548', '', '129', '', 'JOEL.DENEGRI@INSECORP.PE', 'JDENEGRI', '123456', 1),
-	(189, 1, 11, 5, 'SONJA', 'ROJAS', 'PEREZ', '36124575', '', '130', '', 'SONJA.ROJAS@INSECORP.PE', 'SROJAS', '123456', 1);
+	(189, 1, 11, 5, 'SONJA', 'ROJAS', 'PEREZ', '36124575', '', '130', '', 'SONJA.ROJAS@INSECORP.PE', 'SROJAS', '123456', 1),
+	(190, 1, 11, 6, 'MARíA', 'SALDARRIAGA', 'RAMíREZ', '65741523', '', '117', '', 'MARIA.SALDARRIAGA@INSECORP.PE', 'MSALDARRIAGA', '123456', 1);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
 -- Volcando estructura para tabla insecorp.empresa
@@ -368,7 +369,7 @@ CREATE TABLE IF NOT EXISTS `incidencia` (
   `id_prioridad` int(10) NOT NULL,
   `id_categoria_detalle` int(10) NOT NULL,
   `id_usuario` int(10) NOT NULL,
-  `niv_incidencia` varchar(50) NOT NULL,
+  `niv_incidencia` varchar(10) NOT NULL,
   `asu_incidencia` longtext NOT NULL,
   `des_incidencia` longtext NOT NULL,
   `time_ini_incidencia` datetime NOT NULL,
@@ -376,17 +377,20 @@ CREATE TABLE IF NOT EXISTS `incidencia` (
   `fec_ven` datetime NOT NULL,
   `act_incidencia` int(2) NOT NULL,
   PRIMARY KEY (`id_incidencia`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla insecorp.incidencia: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla insecorp.incidencia: ~8 rows (aproximadamente)
 /*!40000 ALTER TABLE `incidencia` DISABLE KEYS */;
 INSERT INTO `incidencia` (`id_incidencia`, `id_cliente`, `id_asignado`, `id_tipo_solicitud`, `id_modo`, `id_impacto`, `id_prioridad`, `id_categoria_detalle`, `id_usuario`, `niv_incidencia`, `asu_incidencia`, `des_incidencia`, `time_ini_incidencia`, `time_fin_incidencia`, `fec_ven`, `act_incidencia`) VALUES
-	(32, 3, 2, 1, 1, 1, 1, 28, 1, '1', 'A', 'A', '2017-05-03 18:01:02', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 3),
-	(33, 3, 2, 4, 1, 1, 1, 30, 1, '2', 'CAMBIENME', 'PORFAVOR', '2017-05-03 18:03:28', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 4),
-	(34, 116, 2, 6, 1, 3, 3, 28, 1, '3', 'T', 'T', '2017-05-04 18:17:17', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 4),
-	(35, 4, 3, 1, 1, 1, 1, 30, 1, '3', 'O', 'O', '2017-05-04 18:23:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 3),
-	(36, 186, 5, 1, 1, 4, 4, 28, 1, '1', 'REPORTA PROBLEMAS CON LA CONEXION A RED', 'REPORTA PROBLEMAS CON LA CONEXION A RED', '2017-05-06 14:46:50', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 4),
-	(41, 1, 0, 3, 1, 4, 3, 28, 1, 'NIVEL 2', 'SOLICITA CAMBIO DE MONITOR', 'SOLICITA CAMBIO DE MONITOR', '2017-05-06 16:27:42', '0000-00-00 00:00:00', '2017-05-09 12:00:00', 4);
+	(32, 3, 7, 1, 1, 1, 1, 28, 1, 'NIVEL 3', 'A', 'A', '2017-05-03 18:01:02', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 3),
+	(33, 3, 5, 4, 1, 1, 1, 30, 1, 'Nivel 2', 'CAMBIENME', 'PORFAVOR', '2017-05-03 18:03:28', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 4),
+	(35, 4, 5, 1, 1, 1, 1, 30, 1, 'Nivel 2', 'O', 'O', '2017-05-04 18:23:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 3),
+	(41, 1, 5, 3, 1, 4, 3, 28, 1, 'Nivel 2', 'SOLICITA CAMBIO DE MONITOR', 'SOLICITA CAMBIO DE MONITOR', '2017-05-06 16:27:42', '0000-00-00 00:00:00', '2017-05-09 12:00:00', 5),
+	(42, 5, 5, 1, 2, 4, 3, 29, 1, 'Nivel 2', 'REPORTA PROBLEMAS CON LA CONEXION DE RED', 'REPORTA PROBLEMAS CON LA CONEXION DE RED', '2017-05-06 16:55:21', '0000-00-00 00:00:00', '2017-05-10 12:00:00', 4),
+	(43, 3, 4, 2, 1, 1, 2, 35, 1, 'Nivel 1', 'SOLICITA CAMBIO DE PRECIO EN PRODUCTO', 'SOLICITA CAMBIO DE PRECIO EN PRODUCTO', '2017-05-06 17:49:39', '0000-00-00 00:00:00', '2017-05-08 12:00:00', 4),
+	(44, 15, 4, 6, 2, 4, 3, 35, 1, 'NIVEL 1', 'SOLICITA ACCESO A LAS HOJAS TECNICAS DE SEGURIDAD', 'SOLICITA ACCESO A LAS HOJAS TECNICAS DE SEGURIDAD', '2017-05-06 18:01:04', '2017-05-06 18:12:25', '2017-05-10 12:00:00', 2),
+	(45, 190, 4, 1, 2, 4, 3, 29, 1, 'NIVEL 1', 'REPORTA QUE NO PUEDE ACCEDER A LAS PáGINAS DEL BANCO', 'REPORTA QUE NO PUEDE ACCEDER A LAS PáGINAS DEL BANCO', '2017-05-06 18:51:53', '0000-00-00 00:00:00', '2017-05-08 12:00:00', 4),
+	(46, 9, 4, 3, 2, 4, 3, 33, 4, 'NIVEL 1', 'SOLICITA CREACIóN DE CUENTA DE CORREO CORPORATIVO', 'SOLICITA CREACIóN DE CUENTA DE CORREO CORPORATIVO', '2017-05-06 20:45:06', '0000-00-00 00:00:00', '2017-05-09 12:00:00', 4);
 /*!40000 ALTER TABLE `incidencia` ENABLE KEYS */;
 
 -- Volcando estructura para tabla insecorp.incidencia_cambio
@@ -401,18 +405,31 @@ CREATE TABLE IF NOT EXISTS `incidencia_cambio` (
   `time_fin_incidencia_cambio` time NOT NULL,
   `fec_incidencia_cambio` date NOT NULL,
   PRIMARY KEY (`id_incidencia_cambio`)
-) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla insecorp.incidencia_cambio: ~7 rows (aproximadamente)
+-- Volcando datos para la tabla insecorp.incidencia_cambio: ~20 rows (aproximadamente)
 /*!40000 ALTER TABLE `incidencia_cambio` DISABLE KEYS */;
 INSERT INTO `incidencia_cambio` (`id_incidencia_cambio`, `id_incidencia`, `id_usuario`, `tip_incidencia_cambio`, `det_incidencia_cambio`, `desc_incidencia_cambio`, `time_ini_incidencia_cambio`, `time_fin_incidencia_cambio`, `fec_incidencia_cambio`) VALUES
 	(127, 32, 1, 'ASIGNACIÃ“N', '2', 'TU PUEDES', '18:01:02', '18:01:13', '2017-05-03'),
 	(128, 32, 2, 'CAMBIO DE ESTADO', '3', '', '18:01:02', '18:01:41', '2017-05-03'),
-	(129, 34, 1, 'ASIGNACIÃ“N', '2', 'RRRR', '18:17:17', '18:22:04', '2017-05-04'),
 	(130, 33, 1, 'ASIGNACIÃ“N', '2', 'GGG', '18:03:28', '18:22:42', '2017-05-04'),
 	(131, 35, 1, 'CAMBIO DE ESTADO', '3', '', '18:23:00', '18:25:21', '2017-05-04'),
 	(132, 35, 1, 'ASIGNACIÃ“N', '3', 'AAA', '18:23:00', '18:25:49', '2017-05-04'),
-	(133, 36, 1, 'ASIGNACIÃ“N', '5', '.', '14:46:50', '14:47:19', '2017-05-06');
+	(134, 41, 1, 'ASIGNACIÃ“N', '3', '.', '16:27:42', '16:40:15', '2017-05-06'),
+	(135, 41, 1, 'CAMBIO DE ESTADO', '5', '', '16:27:42', '16:47:16', '2017-05-06'),
+	(136, 41, 1, 'ASIGNACIÃ“N', '3', '.', '16:27:42', '16:47:38', '2017-05-06'),
+	(137, 41, 1, 'ASIGNACIÃ“N', '5', '.', '16:27:42', '16:54:20', '2017-05-06'),
+	(138, 42, 1, 'ASIGNACIÃ“N', '5', '.', '16:55:21', '16:55:59', '2017-05-06'),
+	(139, 42, 1, 'ASIGNACIÃ“N', '5', '.', '16:55:21', '16:59:50', '2017-05-06'),
+	(140, 32, 1, 'ASIGNACIÃ“N', '5', '.', '18:01:02', '17:44:16', '2017-05-06'),
+	(141, 33, 1, 'ASIGNACIÃ“N', '5', '.', '18:03:28', '17:44:44', '2017-05-06'),
+	(143, 35, 1, 'ASIGNACIÃ“N', '5', '.', '18:23:00', '17:47:48', '2017-05-06'),
+	(145, 43, 1, 'ASIGNACIÃ“N', '4', '.', '17:49:39', '17:50:06', '2017-05-06'),
+	(146, 44, 1, 'ASIGNACIÃ“N', '4', '.', '18:01:04', '18:01:17', '2017-05-06'),
+	(147, 44, 1, 'CAMBIO DE ESTADO', '2', '', '18:01:04', '18:12:25', '2017-05-06'),
+	(148, 32, 1, 'ASIGNACIÃ“N', '7', '.', '18:01:02', '18:23:53', '2017-05-06'),
+	(149, 45, 1, 'ASIGNACIÓN', '4', '.', '18:51:53', '18:52:09', '2017-05-06'),
+	(150, 46, 4, 'ASIGNACIÓN', '4', '.', '20:45:06', '20:45:35', '2017-05-06');
 /*!40000 ALTER TABLE `incidencia_cambio` ENABLE KEYS */;
 
 -- Volcando estructura para tabla insecorp.modo
