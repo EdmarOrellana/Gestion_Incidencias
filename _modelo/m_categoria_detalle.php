@@ -58,14 +58,13 @@ return $servicio;
 
 
 //-------------------------------------------------------------------------------------------------------
-function GrabarCategoriaDetalle($cat,$gru,$nom)
+function GrabarCategoriaDetalle($cat,$nom)
 {
 include("../conexion/conexion.php");
 
 	//Verificar si existe este categoria_detalle 
 	$sqlv="SELECT * FROM categoria_detalle 
 	INNER JOIN categoria ON categoria_detalle.id_categoria=categoria.id_categoria
-	INNER JOIN grupo ON categoria_detalle.id_grupo=grupo.id_grupo
 	WHERE nom_categoria_detalle='$nom'";
 	$resv=mysql_query($sqlv,$con);
 	$rowv=mysql_fetch_array($resv);
@@ -109,14 +108,13 @@ return $datos;
 
 //-------------------------------------------------------------------------------------------------------
 
-function ActualizarCategoriaDetalle($id_categoria_detalle,$cat,$gru,$nom,$act,$e)
+function ActualizarCategoriaDetalle($id_categoria_detalle,$cat,$nom,$act,$e)
 {
 include("../conexion/conexion.php");
 
 	//Verificar si existe este categoria_detalle 
 	$sqlv="SELECT * FROM categoria_detalle 
 	INNER JOIN categoria ON categoria_detalle.id_categoria=categoria.id_categoria
-	INNER JOIN grupo ON categoria_detalle.id_grupo=grupo.id_grupo
 	WHERE nom_categoria_detalle='$nom'";
 	$resv=mysql_query($sqlv,$con);
 	$rowv=mysql_fetch_array($resv);
@@ -126,7 +124,6 @@ include("../conexion/conexion.php");
 	{
 	$sqlg="UPDATE categoria_detalle SET 
 	id_categoria='$cat',
-	id_grupo='$gru',
 	nom_categoria_detalle='$nom',
 	act_categoria_detalle='$act'
 	WHERE id_categoria_detalle='$id_categoria_detalle'";

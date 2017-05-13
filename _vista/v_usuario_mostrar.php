@@ -7,29 +7,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
-
 <body id="datatables">
-<!-- ------------------------------------------------------------------------------------------------------- -->
 			<div class="menubar">
                 <div class="sidebar-toggler visible-xs">
                     <i class="ion-navicon"></i>
                 </div>
-
 				<div class="page-title">
 					<i class="ion-person-stalker"></i>
                Usuario | <a href="usuario_mostrar.php">Listado de Usuario</a> | <a href="usuario_nuevo.php">Nuevo Usuario</a>
 				</div>
-
 			</div>
 
-
-<!-- ------------------------------------------------------------------------------------------------------- -->
 <a href="usuario_mostrar_excel.php" style="cursor:pointer; color:#060" target="_self" class="btn btn-xs btn-link" aria-label="Left Align" ><span class="glyphicon glyphicon-download" aria-hidden="true"></span><?php echo " Exportar a Excel" ?></a>
-<!-- ------------------------------------------------------------------------------------------------------- -->
-
 
 			<div class="content-wrapper">
-
 				<table id="datatable-example">
                     <thead>
                         <tr>
@@ -39,15 +30,13 @@
                             <th tabindex="0" rowspan="1" colspan="1">Estado</th>
                             <th tabindex="0" rowspan="1" colspan="1">Editar</th>
                             <th tabindex="0" rowspan="1" colspan="1">Eliminar</th>
-
                         </tr>
                     </thead>
 
                     <tbody>
-
                     <?php foreach ($consulta as $row): ?>
-                        <tr>
 
+										<tr>
                      <form action="usuario_editar.php" method="post"  name="cuatro" autocomplete="off">
 
                         <td  ><?php echo $row['nom_usuario']." ".$row['ape_pat_usuario']." ".$row['ape_mat_usuario']; ?></td>
@@ -59,36 +48,24 @@
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar
                         </button>
                         </td>
+                  	</form>
 
+		               <form action="usuario_mostrar.php" method="post" autocomplete="off">
+		                   <td>
+		          							<button type="submit" name="eliminar" style="color:#F00" value="<?php echo $row['id_usuario']; ?>" class="btn btn-xs btn-link" aria-label="Left Align" >
+		                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Eliminar
+		                        </button>
+		                   </td>
+		               </form>
 
-                  </form>
-
-               <form action="usuario_mostrar.php" method="post" autocomplete="off">
-
-                   <td>
-          <button type="submit" name="eliminar" style="color:#F00" value="<?php echo $row['id_usuario']; ?>" class="btn btn-xs btn-link" aria-label="Left Align" >
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Eliminar
-                        </button>
-                   </td>
-
-               </form>
-
-
-
-                        </tr>
+                  </tr>
 					<?php endforeach; ?>
-
-
                    	</tbody>
                 </table>
-
 			</div>
-<!-- ------------------------------------------------------------------------------------------------------- -->
 <?php
 include("v_foot.php");
 ?>
-
-
 
 </body>
 </html>

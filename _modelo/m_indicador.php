@@ -26,14 +26,14 @@ mysql_close($con);
 return $consulta;
 }
 //--------------------------------------------------------
-function IncidenciasSolucionadasSI($fecha)
+function IncidenciasResueltasNivel1($fecha)
 {
 include("../conexion/conexion.php");
 
 $sql="SELECT *,
 IFNULL(COUNT(*),0) as cantidad
 FROM incidencia
-WHERE act_incidencia='4'
+WHERE act_incidencia='5' AND niv_incidencia='NIVEL 1'
 AND DATE_FORMAT(time_ini_incidencia,'%Y-%m-%d')='$fecha'";
 
 $res=mysql_query($sql,$con);

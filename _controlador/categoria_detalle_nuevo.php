@@ -23,8 +23,6 @@ include("menu.php");
 //Datos por defecto
 require_once('../_modelo/m_categoria.php');
 $categoria = BuscarCategoria();
-require_once('../_modelo/m_grupo.php');
-$grupo = BuscarGrupo();
 //Llamar a MODELO
 require_once('../_modelo/m_categoria_detalle.php');
 //Llamar VISTA
@@ -35,10 +33,9 @@ require('../_vista/v_categoria_detalle_nuevo.php');
 if(isset($_REQUEST['grabar']))
 {	
 $cat=strtoupper($_REQUEST['cat']);
-$gru=strtoupper($_REQUEST['gru']);
 $nom=strtoupper($_REQUEST['nom']);
 
-$rpta = GrabarCategoriaDetalle($cat,$gru,$nom);
+$rpta = GrabarCategoriaDetalle($cat,$nom);
 
 
 //MOSTRAR MENSAJES

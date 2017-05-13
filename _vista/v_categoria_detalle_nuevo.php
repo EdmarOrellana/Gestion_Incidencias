@@ -71,15 +71,7 @@ return /\d/.test(String.fromCharCode(keynum));
 	 </select></td>
   </tr>
   
-     <tr>
-    <td width="20%" align="left"><strong>Grupo:&nbsp;</strong></td>
-    <td width="80%" align="left"><select name="gru" class="form-control input-sm" >
-    <?php foreach ($grupo as $row): ?>
-    <option value="<?php echo $row['id_grupo']; ?>"><?php echo $row['nom_grupo']; ?></option>
-	<?php endforeach; ?>
-	 </select></td>
-  </tr>
-  
+
 
 </table>
    <!-- ----------------------------------------------------------------------------------------------------------------- -->   

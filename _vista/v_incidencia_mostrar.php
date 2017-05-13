@@ -85,12 +85,13 @@
 
                         <?php
 													$act=$row['act_incidencia'];
-													if($act==1){$estado="ABIERTO";}
-													else if($act==2){$estado="CERRADO";}
-													else if($act==3){$estado="DETENIDO";}
-													else if($act==4){$estado="ESPERA";}
-													else if($act==5){$estado="RESUELTO";}
-													else if($act==6){$estado="REABIERTO";}
+													if($act==1){$estado="Abierto";}
+													else if($act==2){$estado="Cerrado";}
+													else if($act==3){$estado="Detenido";}
+													else if($act==4){$estado="Espera";}
+													else if($act==5){$estado="Resuelto";}
+													else if($act==6){$estado="Reabierto";}
+													else if($act==7){$estado="Desaprobado";}
 												?>
 
                     		<td  ><?php echo $estado; ?></td>
@@ -109,13 +110,12 @@
 
 											<td  ><?php echo $fec_ven; ?></td>
 
-
 											<form action="incidencia_mostrar.php" method="post" autocomplete="off">
 												<?php if($tipo!="ESPECIALISTA") { ?>
 
 												<td>
 			                     <button type="submit" name="eliminar" style="color:#F00" value="<?php echo $row['id_incidencia']; ?>" class="btn btn-xs btn-link" aria-label="Left Align" >
-			                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Eliminar
+			                     	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Eliminar
 			                     </button>
 			                   </td>
 			                       <?php } ?>

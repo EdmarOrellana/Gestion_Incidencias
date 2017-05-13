@@ -34,7 +34,6 @@
                         <tr>
                             <th tabindex="0" rowspan="1" colspan="1">Subcategoría</th>
                             <th tabindex="0" rowspan="1" colspan="1">Categoría</th>
-                            <th tabindex="0" rowspan="1" colspan="1">Grupo</th>
                             <th tabindex="0" rowspan="1" colspan="1">Estado</th>
                             <th tabindex="0" rowspan="1" colspan="1">Editar</th>
                             <th tabindex="0" rowspan="1" colspan="1">Eliminar</th>
@@ -54,7 +53,6 @@
                         
                         <td  ><?php echo $row['nom_categoria_detalle']; ?></td>
                         <td  ><?php echo $row['nom_categoria']; ?></td>
-                        <td  ><?php echo $row['nom_grupo']; ?></td>
                         <td  ><?php echo $row['act_categoria_detalle']; ?></td>
                         <td>
                         <button type="submit" name="editar" value="<?php echo $row['id_categoria_detalle']; ?>" class="btn btn-xs btn-link" aria-label="Left Align" >

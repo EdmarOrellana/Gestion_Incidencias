@@ -59,7 +59,7 @@ if($rpta=="SI")
 <script Language="JavaScript">
 //window.opener.location.reload();
 //window.close();
-alert("Registrado exitosamente!!!");
+alert("Registrado exitosamente.");
 location.href='incidencia_mostrar.php';
 </script>
 <?php }

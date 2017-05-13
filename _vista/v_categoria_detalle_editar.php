@@ -32,7 +32,6 @@ return /\d/.test(String.fromCharCode(keynum));
 foreach ($datos as $datos):
 $id_categoria_detalle=$datos['id_categoria_detalle'];
 $id_categoria=$datos['id_categoria'];
-$id_grupo=$datos['id_grupo'];
 $nom=$datos['nom_categoria_detalle'];
 $act=$datos['act_categoria_detalle'];
 endforeach; 
@@ -84,17 +83,7 @@ endforeach;
 	 </select></td>
   </tr>
  
- 
-   <tr>
-    <td width="20%" align="left"><strong>Grupo:&nbsp;</strong></td>
-    <td width="80%" align="left"><select name="gru" class="form-control input-sm" >
-    <?php foreach ($grupo as $row): 
-			 if($row['id_grupo']==$id_grupo){$m1="selected='selected'";} else {$m1="";}
-	?>
-    <option value="<?php echo $row['id_grupo']; ?>" <?php echo $m1; ?> ><?php echo $row['nom_grupo']; ?></option>
-	<?php endforeach; ?>
-	 </select></td>
-  </tr>
+
  
   
            <?php 
